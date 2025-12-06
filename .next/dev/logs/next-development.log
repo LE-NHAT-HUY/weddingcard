@@ -1,0 +1,189 @@
+[00:00:02.619] Server  LOG      ✓ Ready in 1612ms
+[00:00:06.272] Server  LOG      ○ Compiling / ...
+[00:00:14.559] Server  WARN     ⚠ Cross origin request detected from 172.31.3.77 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:14.637] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016532704}
+[00:00:16.097] Server  LOG      ○ Compiling /_not-found/page ...
+[00:00:23.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:25.925] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:25.925] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:25.925] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016542805}
+[00:00:50.927] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:51.209] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:51.209] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/editor","route":"/editor"}
+[00:00:51.209] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/editor color: rgb(120, 120, 120) color: inherit {"dp":"/editor","o":"http://172.31.3.77:3000/editor","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016568645}
+[00:03:43.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:43.879] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:43.880] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/editor","route":"/editor"}
+[00:03:43.880] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/editor color: rgb(120, 120, 120) color: inherit {"dp":"/editor","o":"http://172.31.3.77:3000/editor","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016741317}
+[00:05:41.349] Server  LOG      ✓ Compiled in 417ms
+[00:05:50.624] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:51.181] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:51.181] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/editor","route":"/editor"}
+[00:05:51.181] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/editor color: rgb(120, 120, 120) color: inherit {"dp":"/editor","o":"http://172.31.3.77:3000/editor","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016868606}
+[00:06:48.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:48.961] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:48.961] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/editor","route":"/editor"}
+[00:06:48.961] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/editor color: rgb(120, 120, 120) color: inherit {"dp":"/editor","o":"http://172.31.3.77:3000/editor","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016926401}
+[00:07:03.666] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:03.669] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016940998}
+[00:07:34.634] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:34.634] Browser LOG     FBNavMaxLongtaskMs:271
+[00:07:35.215] Browser LOG     FBNavResponseStart:1765016970258
+[00:07:35.215] Browser LOG     FBNavResponseEnd:1765016970278
+[00:07:35.215] Browser LOG     FBNavDomContentLoaded:1765016970442
+[00:07:35.215] Browser LOG     FBNavLoadEventEnd:1765016971413
+[00:07:35.215] Browser LOG     FBNavAmpDetect:false
+[00:07:35.215] Browser LOG     FBNavResponseStart:1765016970258
+[00:07:35.215] Browser LOG     FBNavResponseEnd:1765016970278
+[00:07:35.215] Browser LOG     FBNavDomContentLoaded:1765016970442
+[00:07:35.215] Browser LOG     FBNavLoadEventEnd:1765016971413
+[00:07:35.215] Browser LOG     FBNavAmpDetect:false
+[00:07:35.215] Browser LOG     text_and_dom: 6cc9be9913cd8cd6
+[00:07:35.215] Browser LOG     text_only: bc8a9e1911cf84d3
+[00:07:35.215] Browser LOG     dom_only: 46edb89ffb490b9e
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.216] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavResponseStart:1765016970258
+[00:07:35.735] Browser LOG     FBNavResponseEnd:1765016970278
+[00:07:35.735] Browser LOG     FBNavDomContentLoaded:1765016970442
+[00:07:35.735] Browser LOG     FBNavLoadEventEnd:1765016971413
+[00:07:35.735] Browser LOG     FBNavAmpDetect:false
+[00:07:35.735] Browser LOG     FBNavResponseStart:1765016970258
+[00:07:35.735] Browser LOG     FBNavResponseEnd:1765016970278
+[00:07:35.735] Browser LOG     FBNavDomContentLoaded:1765016970442
+[00:07:35.735] Browser LOG     FBNavLoadEventEnd:1765016971413
+[00:07:35.735] Browser LOG     FBNavAmpDetect:false
+[00:07:35.735] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavResponseStart:1765016970258
+[00:07:35.735] Browser LOG     FBNavResponseEnd:1765016970278
+[00:07:35.735] Browser LOG     FBNavDomContentLoaded:1765016970442
+[00:07:35.735] Browser LOG     FBNavLoadEventEnd:1765016971413
+[00:07:35.735] Browser LOG     FBNavAmpDetect:false
+[00:07:35.735] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavFirstContentfulPaint:1765016971473
+[00:07:35.735] Browser LOG     FBNavLargestContentfulPaint:1765016971473
+[00:07:36.366] Browser LOG     FBNavINP:48
+[00:07:36.366] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:36.366] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:36.366] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","r":"http://m.facebook.com/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765016972461}
+[00:07:36.366] Browser LOG     FBNavINP:256
+[00:07:38.818] Browser LOG     FBNavMaxLongtaskMs:392
+[00:07:38.818] Browser LOG     FBNavINP:432
+[00:07:40.080] Browser LOG     FBNavINP:520
+[00:07:41.863] Browser LOG     FBNavMaxLongtaskMs:488
+[00:07:41.863] Browser LOG     FBNavINP:752
+[00:09:10.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:10.620] Browser LOG     FBNavMaxLongtaskMs:259
+[00:09:10.621] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavResponseStart:1765017064908
+[00:09:10.621] Browser LOG     FBNavResponseEnd:1765017064919
+[00:09:10.621] Browser LOG     FBNavDomContentLoaded:1765017065289
+[00:09:10.621] Browser LOG     FBNavAmpDetect:false
+[00:09:10.621] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:10.621] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:11.019] Browser LOG     FBNavINP:40
+[00:09:11.019] Browser LOG     FBNavINP:176
+[00:09:12.704] Browser LOG     FBNavResponseStart:1765017064908
+[00:09:12.705] Browser LOG     FBNavResponseEnd:1765017064919
+[00:09:12.705] Browser LOG     FBNavDomContentLoaded:1765017065289
+[00:09:12.705] Browser LOG     FBNavLoadEventEnd:1765017069078
+[00:09:12.705] Browser LOG     FBNavAmpDetect:false
+[00:09:12.705] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:12.705] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:12.705] Browser LOG     text_and_dom: 6cc9be9913cd8cd6
+[00:09:12.705] Browser LOG     text_only: bc8a9e1913ef84d3
+[00:09:12.705] Browser LOG     dom_only: 46edb89ffb490b9e
+[00:09:13.177] Browser LOG     FBNavResponseStart:1765017064908
+[00:09:13.177] Browser LOG     FBNavResponseEnd:1765017064919
+[00:09:13.177] Browser LOG     FBNavDomContentLoaded:1765017065289
+[00:09:13.177] Browser LOG     FBNavLoadEventEnd:1765017069078
+[00:09:13.177] Browser LOG     FBNavAmpDetect:false
+[00:09:13.177] Browser LOG     FBNavResponseStart:1765017064908
+[00:09:13.177] Browser LOG     FBNavResponseEnd:1765017064919
+[00:09:13.177] Browser LOG     FBNavDomContentLoaded:1765017065289
+[00:09:13.177] Browser LOG     FBNavLoadEventEnd:1765017069078
+[00:09:13.177] Browser LOG     FBNavAmpDetect:false
+[00:09:13.177] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:13.177] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:13.177] Browser LOG     FBNavResponseStart:1765017064908
+[00:09:13.177] Browser LOG     FBNavResponseEnd:1765017064919
+[00:09:13.177] Browser LOG     FBNavDomContentLoaded:1765017065289
+[00:09:13.177] Browser LOG     FBNavLoadEventEnd:1765017069078
+[00:09:13.177] Browser LOG     FBNavAmpDetect:false
+[00:09:13.177] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:13.177] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:13.177] Browser LOG     FBNavFirstContentfulPaint:1765017066626
+[00:09:13.177] Browser LOG     FBNavLargestContentfulPaint:1765017066626
+[00:09:13.228] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:13.228] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:09:13.228] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","r":"http://m.facebook.com/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765017069716}
+[00:09:13.750] Browser LOG     FBNavINP:224
+[00:09:16.644] Browser LOG     FBNavMaxLongtaskMs:341
+[00:09:16.644] Browser LOG     FBNavINP:240
+[00:09:16.644] Browser LOG     FBNavINP:392
+[00:09:20.735] Browser LOG     FBNavINP:448
+[00:09:25.892] Browser LOG     FBNavMaxLongtaskMs:904
+[00:09:26.060] Browser LOG     FBNavINP:1040
+[00:10:51.895] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:52.460] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:10:52.460] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:10:52.460] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765017169904}
+[00:12:41.757] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:41.757] Browser LOG     FBNavMaxLongtaskMs:433
+[00:12:42.102] Browser LOG     FBNavResponseStart:1765017276106
+[00:12:42.102] Browser LOG     FBNavResponseEnd:1765017276113
+[00:12:42.102] Browser LOG     FBNavDomContentLoaded:1765017276411
+[00:12:42.102] Browser LOG     FBNavLoadEventEnd:1765017278387
+[00:12:42.102] Browser LOG     FBNavAmpDetect:false
+[00:12:42.102] Browser LOG     text_and_dom: 6cc9ba9913cd8cd6
+[00:12:42.102] Browser LOG     text_only: bc8abe1911ef84d3
+[00:12:42.102] Browser LOG     dom_only: 46edb89ffb490b96
+[00:12:42.102] Browser LOG     FBNavFirstContentfulPaint:1765017277591
+[00:12:42.102] Browser LOG     FBNavLargestContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavResponseStart:1765017276106
+[00:12:42.830] Browser LOG     FBNavResponseEnd:1765017276113
+[00:12:42.830] Browser LOG     FBNavDomContentLoaded:1765017276411
+[00:12:42.830] Browser LOG     FBNavLoadEventEnd:1765017278387
+[00:12:42.830] Browser LOG     FBNavAmpDetect:false
+[00:12:42.830] Browser LOG     FBNavResponseStart:1765017276106
+[00:12:42.830] Browser LOG     FBNavResponseEnd:1765017276113
+[00:12:42.830] Browser LOG     FBNavDomContentLoaded:1765017276411
+[00:12:42.830] Browser LOG     FBNavLoadEventEnd:1765017278387
+[00:12:42.830] Browser LOG     FBNavAmpDetect:false
+[00:12:42.830] Browser LOG     FBNavResponseStart:1765017276106
+[00:12:42.830] Browser LOG     FBNavResponseEnd:1765017276113
+[00:12:42.830] Browser LOG     FBNavDomContentLoaded:1765017276411
+[00:12:42.830] Browser LOG     FBNavLoadEventEnd:1765017278387
+[00:12:42.830] Browser LOG     FBNavAmpDetect:false
+[00:12:42.830] Browser LOG     FBNavFirstContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavLargestContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavFirstContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavLargestContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavFirstContentfulPaint:1765017277591
+[00:12:42.830] Browser LOG     FBNavLargestContentfulPaint:1765017277591
+[00:12:43.103] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:12:43.103] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:12:43.103] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://172.31.3.77:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.31.3.77:3000/","r":"http://m.facebook.com/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765017279593}
