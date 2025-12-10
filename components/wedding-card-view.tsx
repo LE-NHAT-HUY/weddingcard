@@ -61,12 +61,12 @@ const defaultData: WeddingData = {
     },
   ],
   gallery: [
-    "/elegant-wedding-portrait.jpg",
-    "/couple-holding-hands-romantic.jpg",
-    "/bride-and-groom-outdoor-garden.jpg",
-    "/couple-laughing-together-happy.jpg",
-    "/wedding-couple-sunset-beach.jpg",
-    "/couple-formal-wedding-attire.jpg",
+    "/anh1.jpg",
+    "/anh2.jpg",
+    "/anh3.jpg",
+    "/anh4.jpg",
+    "/anh5.jpg",
+    "/anh6.jpg",
   ],
 }
 
@@ -106,15 +106,6 @@ export default function WeddingCardView() {
         return
       }
 
-      if (wishesData) {
-        const formattedWishes: Wish[] = wishesData.map((w) => ({
-          id: w.id,
-          name: w.name,
-          message: w.message,
-          createdAt: w.created_at,
-        }))
-        setWishes(formattedWishes)
-      }
     }
 
     loadWishes()
@@ -122,15 +113,6 @@ export default function WeddingCardView() {
     const supabase = createClient()
     const channel = supabase
       .channel("wishes-changes")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "wishes" }, (payload) => {
-        const newWish: Wish = {
-          id: payload.new.id,
-          name: payload.new.name,
-          message: payload.new.message,
-          createdAt: payload.new.created_at,
-        }
-        setWishes((prev) => [newWish, ...prev])
-      })
       .subscribe()
 
     return () => {
@@ -285,44 +267,6 @@ export default function WeddingCardView() {
         </div>
       )}
 
-      {showMusicPrompt && (
-        <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center backdrop-blur-sm">
-          <div
-            className="bg-white rounded-2xl p-5 sm:p-8 max-w-[90vw] sm:max-w-sm w-full text-center shadow-2xl mx-4"
-            style={{ animation: "fadeInUp 0.5s ease-out" }}
-          >
-            <div
-              className="w-14 h-14 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-6 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: data.primaryColor + "20" }}
-            >
-              <Music className="w-7 h-7 sm:w-10 sm:h-10" style={{ color: data.primaryColor }} />
-            </div>
-            <h3
-              className="text-xl sm:text-3xl mb-2 sm:mb-3"
-              style={{ fontFamily: "'Great Vibes', cursive", color: data.primaryColor }}
-            >
-              {data.groomName} & {data.brideName}
-            </h3>
-            <p className="text-gray-600 mb-3 sm:mb-6 text-xs sm:text-base">
-              Trân trọng kính mời bạn đến dự lễ cưới của chúng mình
-            </p>
-            <button
-              onClick={handleStartMusic}
-              className="w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-full text-white font-medium transition-all hover:opacity-90 hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
-              style={{ backgroundColor: data.primaryColor }}
-            >
-              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
-              Mở thiệp cưới
-            </button>
-            <button
-              onClick={() => setShowMusicPrompt(false)}
-              className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-500 hover:text-gray-700"
-            >
-              Xem không có nhạc
-            </button>
-          </div>
-        </div>
-      )}
 
       {!showMusicPrompt && (
         <button
@@ -449,7 +393,11 @@ export default function WeddingCardView() {
         </div>
       )}
 
-      <WeddingCardScroll data={data} />
+      <WeddingCardScroll
+  data={data}
+  onToggleMusic={toggleMusic}
+  onShowWishModal={() => setShowWishModal(true)}
+/>
     </div>
   )
 }

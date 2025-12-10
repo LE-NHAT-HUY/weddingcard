@@ -1,6 +1,25 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* khóa toàn bộ scroll ngang, kể cả lúc hydration */
+html, body {
+  width: 100%;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -132,9 +151,8 @@
   /* Thêm styles để cố định màn hình, không cuộn ngang */
   html,
   body {
+     font-variant-numeric: lining-nums;
     overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
     position: relative;
   }
 }
@@ -254,4 +272,57 @@ html {
 
 .heart-beat {
   animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+html {
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+}
+
+body {
+  font-size: 16px !important;
+}
+
+/* Kim tuyến / sparkle hình ngôi sao */
+.sparkle {
+  background: radial-gradient(circle, #fff 0%, #fff0 70%);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  ); /* ngôi sao 10 cánh */
+  filter: drop-shadow(0 0 3px #fff);
+  transform: rotate(0deg);
+}
+
+/* Rơi xuống */
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-fall {
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+html, body {
+  overflow-y: auto !important;   /* chỉ body scroll */
+}
+
+body * {
+  scrollbar-width: none;         /* Firefox */
+}
+
+body *::-webkit-scrollbar {
+  width: 0px;                    /* Chrome/Safari */
 }

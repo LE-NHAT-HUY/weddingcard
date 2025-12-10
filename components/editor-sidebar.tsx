@@ -106,7 +106,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="groomName"
                     value={data.groomName}
                     onChange={(e) => updateField("groomName", e.target.value)}
-                    placeholder="VD: Minh Anh"
+                    placeholder="VD: Khánh Nam"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="groomFullName"
                     value={data.groomFullName}
                     onChange={(e) => updateField("groomFullName", e.target.value)}
-                    placeholder="VD: Nguyễn Minh Anh"
+                    placeholder="VD: Lê Khánh Nam"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -141,7 +141,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="brideName"
                     value={data.brideName}
                     onChange={(e) => updateField("brideName", e.target.value)}
-                    placeholder="VD: Thùy Linh"
+                    placeholder="VD: Lan Nhi"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -153,7 +153,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="brideFullName"
                     value={data.brideFullName}
                     onChange={(e) => updateField("brideFullName", e.target.value)}
-                    placeholder="VD: Trần Thùy Linh"
+                    placeholder="VD: Nguyễn Thị Lan Nhi"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -174,7 +174,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="groomFatherName"
                     value={data.groomFatherName}
                     onChange={(e) => updateField("groomFatherName", e.target.value)}
-                    placeholder="VD: Nguyễn Văn Hùng"
+                    placeholder="VD: Lê Văn Năm"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -186,7 +186,7 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                     id="groomMotherName"
                     value={data.groomMotherName}
                     onChange={(e) => updateField("groomMotherName", e.target.value)}
-                    placeholder="VD: Lê Thị Mai"
+                    placeholder="VD: Trương Thi Cúc"
                     className="mt-1 text-sm"
                   />
                 </div>
@@ -441,10 +441,21 @@ export default function EditorSidebar({ data, setData, activeTab, setActiveTab }
                   placeholder="Nhập URL ảnh..."
                   className="mt-1 text-sm"
                 />
-                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
-                  Ảnh chân dung cặp đôi, kích thước khuyến nghị: 400x600px
-                </p>
-              </div>
+                  {/* Preview ảnh full màn hình */}
+                  {data.coverPhoto && (
+                    <div className="mt-4 w-full h-screen">
+                      <img
+                        src={data.coverPhoto}
+                        alt="Ảnh bìa"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
+
+                  <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
+                    Ảnh sẽ hiển thị toàn màn hình (full screen)
+                  </p>
+                </div>
             </div>
 
             <div className="space-y-3 sm:space-y-4">
