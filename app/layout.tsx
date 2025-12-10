@@ -27,13 +27,31 @@ const sacramento = Sacramento({
 })
 
 export const metadata: Metadata = {
-  title: "Thư Mời Ngày Cưới Khánh Nam & Lan Nhi",
-  description: "",
-  keywords: "",
-  generator: "",
+  title: "Thiệp Cưới Khánh Nam & Lan Nhi",
+  description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+  openGraph: {
+    title: "Thiệp Cưới Khánh Nam & Lan",
+    description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+    url: "https://weddingcard-beta.vercel.app/",
+    siteName: "Wedding Card",
+    images: [
+      {
+        url: "https://weddingcard-beta.vercel.app/anh6.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wedding couple",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thiệp Cưới Khánh Nam & Lan Nhi",
+    description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+    images: ["https://weddingcard-beta.vercel.app/anh6.jpg"],
+  },
+};
 
-  viewport: "width=390, initial-scale=1, maximum-scale=1",
-}
 
 export const viewport: Viewport = {
   width: "device-width",
