@@ -19,7 +19,7 @@ const defaultData: WeddingData = {
   groomMotherName: "Trương Thị Cúc",
   brideFatherName: "Tên cha",
   brideMotherName: "Tên Mẹ",
-  weddingDate: "2025-05-20",
+  weddingDate: "2026-02-20",
   weddingTime: "12:00",
   lunarDate: "23/04/2025",
   venueName: "Tư Gia Nhà Trai",
@@ -30,35 +30,35 @@ const defaultData: WeddingData = {
   accentColor: "#db9999",
   coverPhoto: "/romantic-couple-wedding-photo-portrait.jpg",
   introText:
-    "Trước đây, chúng mình từng nghĩ rằng, đám cưới chỉ là một thông báo chính thức. Giờ mới hiểu, đó là một dịp hiếm hoi để tụ họp, là sự vượt ngàn dặm để đến bên nhau, là sự ủng hộ vô điều kiện đầy trân quý.",
+    "",
   quoteText:
-    "Tình yêu đích thực không phải là khoảng cách, mà là một lựa chọn. Chúng mình chọn nắm lấy nhau, trân trọng nhau, và cùng nhau gìn giữ. Từ hôm nay, mãi mãi một lòng.",
-  songTitle: "I Love You",
-  songArtist: "Céline Dion",
+    "",
+  songTitle: "",
+  songArtist: "",
   loveStory: [
     {
-      id: "1",
-      date: "05.10.2018",
-      title: "Lần đầu gặp gỡ",
+      id: "",
+      date: "",
+      title: "",
       description:
-        "Giữa dòng người tấp nập, chúng mình gặp nhau vào mùa hè, hẹn ước vào mùa xuân, và hôm nay, trong khoảnh khắc đẹp nhất, chúng mình quyết định nắm tay nhau trọn đời.",
-      image: "/couple-first-meeting-cafe-romantic.jpg",
+        "",
+      image: "",
     },
     {
-      id: "2",
-      date: "20.05.2019",
-      title: "Chúng mình bên nhau",
+      id: "",
+      date: "",
+      title: "",
       description:
-        "Chuyến đi đầu tiên không có đích đến, vậy mà ta lại tìm thấy tình yêu. Em chụp phong cảnh, khen trời thu đẹp, anh chụp em, nói muốn lưu giữ điều tuyệt vời.",
-      image: "/couple-travel-trip-together-happy.jpg",
+        "",
+      image: "",
     },
     {
-      id: "3",
-      date: "20.05.2022",
-      title: "Ba năm bên nhau",
+      id: "",
+      date: "",
+      title: "",
       description:
-        "Có người hỏi, bí mật của tình yêu là gì. Nghĩ thật lâu, có lẽ đó là dũng khí. Tình yêu luôn có câu trả lời.",
-      image: "/couple-anniversary-celebration-romantic-dinner.jpg",
+        "",
+      image: "",
     },
   ],
   gallery: [

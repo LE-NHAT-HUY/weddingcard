@@ -88,13 +88,17 @@ export default function WeddingCardScroll({
     { value: countdown.seconds, label: "Giây" },
   ]
 
+  const containerStyle = {
+  fontFamily: "'Quicksand', 'Playfair Display', sans-serif",
+  backgroundColor: "#FFF8E1", // dễ đổi màu
+};
+
   return (
-    
-    <div
-      ref={containerRef}
-      className="relative w-full max-w-md mx-auto h-screen overflow-y-scroll bg-[#faf8f5] snap-y snap-mandatory"
-      style={{ fontFamily: "'Quicksand', 'Playfair Display', sans-serif" }}
-    >
+  <div
+    ref={containerRef}
+    className="relative w-full md:max-w-md mx-auto h-screen overflow-y-scroll snap-y snap-mandatory"
+    style={containerStyle}
+  >
       {/* ===== FLOATING BUTTONS NỔI TRÊN MÀN HÌNH ===== */}
      
 <div className="fixed bottom-6 right-4 z-50 flex flex-col gap-3">
@@ -127,94 +131,128 @@ export default function WeddingCardScroll({
 </div>
       
         {/* First full-screen photo */}
-        <section
-          id="main-photo-start"
-          data-animate
+       <section
+      id="main-photo-start"
+      data-animate
+      className={`
+        relative
+        w-full
+        h-screen
+        md:relative
+        md:w-full
+        md:h-auto
+        md:aspect-[3/4]
+        md:max-h-[80vh]
+        md:mx-auto
+        md:my-8
+        md:rounded-lg
+        md:overflow-hidden
+        md:shadow-lg
+        transition-all
+        duration-1700
+        ease-out
+        ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+      `}
+      style={{
+        // Reset các transform trên mobile
+      }}
+    >
+      {/* Container for image */}
+      <div className="relative w-full h-full md:h-full">
+        <img
+          src={data.coverPhoto || "/placeholder.svg"}
+          alt="Wedding couple"
+          className="
+            w-full
+            h-full
+            object-cover
+            md:object-contain
+            md:object-center
+          "
+          loading="eager"
+        />
+        
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:from-transparent"></div>
+      </div>
+
+      {/* Text overlay */}
+      <div className="
+        absolute 
+        bottom-[10%] 
+        left-1/2 
+        -translate-x-1/2 
+        w-full 
+        text-center 
+        z-10
+        px-4
+      ">
+        {/* Text content giữ nguyên */}
+        <p
           className={`
-            relative
-            left-1/2
-            -translate-x-1/2
-            w-screen
-            h-screen
-            p-0
-            m-0
-            overflow-hidden
+            text-sm
+            sm:text-base
             transition-all
             duration-1700
-            ease-out
-            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
           `}
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            color: "#ffffff",
+            letterSpacing: "1px",
+            marginBottom: "12px",
+            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
+          }}
         >
-          <div className="absolute inset-0">
-            <img
-              src={data.coverPhoto || "/placeholder.svg"}
-              alt="Wedding couple"
-              className="w-full h-full min-w-full min-h-full object-cover block"
-              loading="eager"
-            />
+          SAVE THE DATE
+        </p>
 
-            <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center z-10">
-              <p
-                className={`
-                  text-sm
-                  sm:text-base
-                  transition-all
-                  duration-1700
-                  ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-                `}
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: "#111111",
-                  letterSpacing: "1px",
-                  marginBottom: "12px",
-                }}
-              >
-                SAVE THE DATE
-              </p>
+        <p
+          className={`
+            text-xl
+            sm:text-3xl
+            md:text-4xl
+            italic
+            transition-all
+            duration-1700
+            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
+          `}
+          style={{
+            fontFamily: "'Great Vibes', cursive",
+            color: "#ffffff",
+            letterSpacing: "2px",
+            whiteSpace: "nowrap",
+            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
+          }}
+        >
+          {data.groomName} & {data.brideName}
+        </p>
 
-              <p
-                className={`
-                  text-xl
-                  sm:text-3xl
-                  italic
-                  transition-all
-                  duration-1700
-                  ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-                `}
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#111111",
-                  letterSpacing: "2px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {data.groomName} & {data.brideName}
-              </p>
-
-              <p
-                className={`
-                  mt-2
-                  text-sm
-                  sm:text-base
-                  transition-all
-                  duration-1700
-                  ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-                `}
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: "#111111",
-                  letterSpacing: "1px",
-                }}
-              >
-                {data.weddingDate
-                  ? new Date(data.weddingDate)
-                      .toLocaleDateString("vi-VN")
-                      .replace(/\//g, ".")
-                  : "02.02.2026"}
-              </p>
-            </div>
-          </div>
-        </section>
+        <p
+          className={`
+            mt-2
+            text-sm
+            sm:text-base
+            md:text-lg
+            transition-all
+            duration-1700
+            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+          `}
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            color: "#ffffff",
+            letterSpacing: "1px",
+            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
+          }}
+        >
+          {data.weddingDate
+            ? new Date(data.weddingDate)
+                .toLocaleDateString("vi-VN")
+                .replace(/\//g, ".")
+            : "02.02.2026"}
+        </p>
+      </div>
+    </section>
 
         {/* Countdown */}
         <section
@@ -764,71 +802,82 @@ export default function WeddingCardScroll({
 
         {/* Last full-screen photo */}
         <section
-          id="main-photo-end"
-          data-animate
-          className={`
-            relative
-            left-1/2
-            -translate-x-1/2
-            w-screen
-            h-screen
-            p-0
-            m-0
-            mt-10  
-            overflow-hidden
-            transition-all
-            duration-1700
-            ease-out
-           
-          `}
-        >
-          <div className="absolute inset-0">
-            <img
-              src={'anh6.jpg'}
-              alt="Wedding couple"
-              className="w-full h-full min-w-full min-h-full object-cover block"
-              loading="eager"
-            />
+  id="main-photo-end"
+  data-animate
+  className={`
+    relative
+    w-screen
+    h-screen
+    md:w-full
+    md:h-auto
+    md:aspect-[3/4]
+    md:max-h-[80vh]
+    md:mx-auto
+    md:my-8
+    md:rounded-lg
+    md:overflow-hidden
+    md:shadow-lg
+    transition-all
+    duration-1700
+    ease-out
+    ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+  `}
+>
+  {/* Container ảnh */}
+  <div className="absolute inset-0 w-full h-full">
+    <img
+      src={'anh6.jpg'}
+      alt="Wedding couple"
+      className="w-full h-full object-cover block"
+      loading="eager"
+    />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-              <p
-                className={`
-                  text-3xl
-                  sm:text-5xl
-                  transition-all
-                  duration-1700
-                  ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-                `}
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#ffffff",
-                  letterSpacing: "2px",
-                  marginBottom: "16px",
-                }}
-              >
-                Lời Cảm Ơn!
-              </p>
+    {/* Overlay gradient nếu cần */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
-              <p
-                className={`
-                  text-sm
-                  sm:text-base
-                  transition-all
-                  duration-1700
-                  ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-                `}
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: "#ffffff",
-                  maxWidth: "420px",
-                  lineHeight: "1.7",
-                }}
-              >
-                Trân trọng cảm ơn quý khách đã dành thời gian đến chung vui cùng gia đình chúng tôi.
-              </p>
-            </div>
-          </div>
-        </section>
+    {/* Text overlay */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
+      <p
+        className={`
+          text-3xl
+          sm:text-5xl
+          transition-all
+          duration-1700
+          ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
+        `}
+        style={{
+          fontFamily: "'Great Vibes', cursive",
+          color: "#ffffff",
+          letterSpacing: "2px",
+          marginBottom: "16px",
+          textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+        }}
+      >
+        Lời Cảm Ơn!
+      </p>
+
+      <p
+        className={`
+          text-sm
+          sm:text-base
+          transition-all
+          duration-1700
+          ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+        `}
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          color: "#ffffff",
+          maxWidth: "420px",
+          lineHeight: "1.7",
+          textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+        }}
+      >
+        Trân trọng cảm ơn quý khách đã dành thời gian đến chung vui cùng gia đình chúng tôi.
+      </p>
+    </div>
+  </div>
+</section>
+
       </div>
   )
 }
