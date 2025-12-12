@@ -28,10 +28,10 @@ const sacramento = Sacramento({
 
 export const metadata: Metadata = {
   title: "Thiệp Cưới Khánh Nam & Lan Nhi",
-  description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+  description: "Mời bạn tham dự lễ cưới của chúng tôi.",
   openGraph: {
     title: "Thiệp Cưới Khánh Nam & Lan Nhi",
-    description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+    description: "Mời bạn tham dự lễ cưới của chúng tôi.",
     url: "https://khanhnam-lannhi.vercel.app/",
     siteName: "Wedding Card",
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Thiệp Cưới Khánh Nam & Lan Nhi",
-    description: "Mời bạn tham dự lễ cưới của chúng tôi vào ngày 20/12/2025.",
+    description: "Mời bạn tham dự lễ cưới của chúng tôi.",
     images: ["https://khanhnam-lannhi.vercel.app/anh6.jpg"],
   },
 };
