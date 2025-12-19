@@ -8,6 +8,7 @@ export interface WeddingData {
   brideFatherName: string
   brideMotherName: string
   weddingDate: string
+   weddingDateA: string
   weddingTime: string
   lunarDate: string
   venueName: string

@@ -17,9 +17,10 @@ const defaultData: WeddingData = {
   brideFullName: "Nguyễn Thị Lan Nhi",
   groomFatherName: "Lê Văn Tiến",
   groomMotherName: "Trương Thị Cúc",
-  brideFatherName: "Tên cha",
-  brideMotherName: "Tên Mẹ",
+  brideFatherName: "Nguyễn Như Thoan",
+  brideMotherName: "Tưởng Thị Bích Thành",
   weddingDate: "2026-01-28",
+  weddingDateA:"",
   weddingTime: "11:00",
   lunarDate: "10/12/2025",
   venueName: "Tư Gia Nhà Trai",
@@ -73,8 +74,9 @@ const defaultData: WeddingData = {
     "/anh8.jpg",
     "/anh9.jpg",
     "/reanh10.jpg",
-    "/anh11.jpg",
-    
+    "/anh12.jpg",
+    "/anh13.jpg",
+    "/anh14.jpg",
   ],
 }
 
@@ -113,7 +115,8 @@ export default function WeddingCardView() {
         console.error("Error loading wishes:", error)
         return
       }
-
+        setWishes(wishesData || [])
+        console.log("Loaded wishes:", wishesData?.length)
     }
 
     loadWishes()
@@ -242,38 +245,86 @@ export default function WeddingCardView() {
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f5f0eb]">
       <audio ref={audioRef} src="/wedding-background-music.mp3" loop preload="auto" />
+{showFloatingWishes && activeWishes.length > 0 && (
+  <div
+    className="
+      fixed
+      left-1/2 -translate-x-1/2
+      bottom-3
+      z-40
+      pointer-events-none
+      w-[92vw] sm:w-[88vw] md:w-[420px]
+      h-[55vh]
+      overflow-hidden
+    "
+  >
+    {activeWishes.map((wish) => (
+      <div
+  key={wish.uniqueKey}
+  className="floating-wish absolute left-0 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl"
+  style={{
+    bottom: 0,
+    maxWidth: "85%",
+    backgroundColor: "rgba(243, 121, 121, 0.65)",
+    border: `1px solid ${data.primaryColor}25`,
+    boxShadow: `0 2px 10px ${data.primaryColor}15`,
+    color: "#ffffff",
+    fontFamily: "'Playfair Display', serif",
+  }}
+>
+  <div className="flex">
+    <span className="text-[13px] sm:text-sm leading-snug line-clamp-2 break-words">
+      <span className="font-semibold">
+        {wish.name}
+      </span>
+      : {wish.message}
+    </span>
+  </div>
+</div>
 
-      {showFloatingWishes && activeWishes.length > 0 && !showMusicPrompt && (
-        <div className="fixed left-0 bottom-16 z-40 pointer-events-none w-[180px] sm:w-[240px] md:w-[300px] h-[45vh] overflow-hidden pl-2 sm:pl-4">
-          {activeWishes.map((wish, index) => (
-            <div
-              key={wish.uniqueKey}
-              className="floating-wish absolute left-0 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl backdrop-blur-md shadow-md"
-              style={{
-                bottom: `${index * 8}px`,
-                backgroundColor: `rgba(255, 240, 245, 0.9)`,
-                border: `1px solid ${data.primaryColor}25`,
-                boxShadow: `0 2px 10px ${data.primaryColor}15`,
-                maxWidth: "calc(100% - 8px)",
-              }}
-            >
-              <div className="flex items-start gap-1.5">
-                <Heart
-                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0 mt-0.5"
-                  style={{ color: data.primaryColor }}
-                  fill={data.primaryColor}
-                />
-                <div className="flex flex-col min-w-0">
-                  <span className="font-semibold text-[10px] sm:text-xs" style={{ color: data.primaryColor }}>
-                    {wish.name}
-                  </span>
-                  <span className="text-gray-700 text-[10px] sm:text-xs line-clamp-2">{wish.message}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+    ))}
+  </div>
+)}
+
+
+<button
+  onClick={toggleFloatingWishes}
+  aria-pressed={showFloatingWishes}
+  className="
+    fixed
+    bottom-6
+    right-20
+    z-50
+    bg-white
+    shadow-lg
+    rounded-full
+    p-2.5
+    hover:scale-105
+    transition
+  "
+  title={showFloatingWishes ? "Tắt bình luận" : "Bật bình luận"}
+>
+  <svg
+    viewBox="0 0 512 512"
+    width="22"
+    height="22"
+    fill="none"
+    stroke="currentColor"
+    className={`transition-all duration-300 ${
+      showFloatingWishes ? "opacity-100" : "opacity-40"
+    }`}
+    style={{ color: data.primaryColor }}
+  >
+    <path
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="48"
+      d="M88 152h336M88 256h336M88 360h336"
+    />
+  </svg>
+</button>
+
+
 
 
       {!showMusicPrompt && (
@@ -309,18 +360,32 @@ export default function WeddingCardView() {
           )}
 
           <div className="flex items-center gap-1 sm:gap-2">
-            <button
-              onClick={toggleFloatingWishes}
-              className={`shadow-lg rounded-full px-2.5 py-2 sm:px-4 sm:py-3 hover:shadow-xl transition-all flex items-center gap-1 sm:gap-2 ${
-                showFloatingWishes ? "bg-white" : "bg-gray-100"
-              }`}
-              style={{ color: showFloatingWishes ? data.primaryColor : "#888" }}
-              title={showFloatingWishes ? "Tắt hiển thị lời chúc" : "Bật hiển thị lời chúc"}
-            >
-              <MessageCircleHeart className={`w-4 h-4 sm:w-5 sm:h-5 ${showFloatingWishes ? "animate-pulse" : ""}`} />
-              <span className="font-medium text-[10px] sm:text-sm hidden xs:inline">Lời chúc</span>
-            </button>
 
+             <button
+            onClick={toggleFloatingWishes}
+            className="bg-white shadow-lg rounded-full p-3 flex items-center justify-center"
+            title={showFloatingWishes ? "Tắt bình luận" : "Bật bình luận"}
+            style={{
+              color: showFloatingWishes ? data.primaryColor : "#999",
+              opacity: showFloatingWishes ? 1 : 0.5,
+            }}
+          >
+            <svg
+              viewBox="0 0 512 512"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeMiterlimit="10"
+                strokeWidth="48"
+                d="M88 152h336M88 256h336M88 360h336"
+              />
+            </svg>
+          </button>
+          
             <button
               onClick={() => setShowWishModal(true)}
               className="bg-white shadow-lg rounded-full p-2 sm:p-3 hover:shadow-xl transition-all hover:scale-105"
@@ -387,6 +452,8 @@ export default function WeddingCardView() {
                   style={{ "--tw-ring-color": data.primaryColor } as React.CSSProperties}
                 />
               </div>
+              
+              
               <button
                 onClick={handleSubmitWish}
                 disabled={!wishForm.name.trim() || !wishForm.message.trim() || isSubmitting}
@@ -401,7 +468,7 @@ export default function WeddingCardView() {
         </div>
       )}
 
-      <WeddingCardScroll
+  <WeddingCardScroll
   data={data}
   onToggleMusic={toggleMusic}
   onShowWishModal={() => setShowWishModal(true)}

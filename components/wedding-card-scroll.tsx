@@ -1,6 +1,6 @@
 "use client"
 import Head from 'next/head'
-import type { WeddingData } from "@/lib/types"
+import type { WeddingData, Wish } from "@/lib/types"
 import { useEffect, useRef, useState } from "react"
 import { Heart, MapPin, Calendar, Volume2, Send } from "lucide-react"
 import RSVPSection from "@/components/RSVPSection"
@@ -16,10 +16,20 @@ export default function WeddingCardScroll({
   onToggleMusic,
   onShowWishModal,
 }: WeddingCardScrollProps) {
+  const [showFloatingWishes, setShowFloatingWishes] = useState(true)
+  
+
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const unlockedRef = useRef(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+
+ const [activeWishes, setActiveWishes] = useState<Array<Wish & { 
+  uniqueKey: string; 
+  position: number  // ← THÊM position vào đây
+}>>([])
+
+  const wishIndexRef = useRef(0)
 
   // Trạng thái nhạc - BAN ĐẦU LÀ TẮT
   const [isMusicOn, setIsMusicOn] = useState(false)
@@ -166,44 +176,65 @@ export default function WeddingCardScroll({
     backgroundColor: "#FFF8E1",
   }
 
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full md:max-w-md mx-auto h-screen overflow-y-scroll snap-y snap-mandatory"
-      style={containerStyle}
-    >
-      {/* ===== FLOATING BUTTONS ===== */}
-      <div className="fixed bottom-6 right-4 z-50 flex flex-col gap-3">
-        <button
-          onClick={handleToggleMusic}
-          aria-pressed={isMusicOn}
-          className="bg-black/70 shadow-lg rounded-full p-1.5 hover:scale-105 transition"
-          title={isMusicOn ? "Tắt nhạc" : "Bật nhạc"}
-        >
-          <img
-            src="/audio-1.png"
-            alt="music icon"
-            className={`w-8 h-8 transition-all duration-500 ${
-              isMusicOn ? "opacity-100 animate-spin" : "opacity-50"
-            }`}
-            style={isMusicOn ? { animationDuration: "3s" } : undefined}
-          />
-        </button>
-        
-      
-      
-       
-  <button
+ return (
+  <div
+    ref={containerRef}
+    className="relative w-full md:max-w-md mx-auto h-screen overflow-y-scroll snap-y snap-mandatory"
+    style={containerStyle}
+  >
+
+    {/* ================= FLOATING BUTTONS ================= */}
+    
+     <button
+  onClick={handleToggleMusic}
+  aria-pressed={isMusicOn}
+  className="
+    fixed
+    top-4 right-4 sm:top-6 sm:right-6
+    z-50
+    bg-black/70
+    shadow-lg
+    rounded-full
+    p-0.5
+    hover:scale-105
+    transition
+  "
+  title={isMusicOn ? "Tắt nhạc" : "Bật nhạc"}
+>
+  <img
+    src="/audio-1.png"
+    alt="music icon"
+    className={`w-8 h-8 transition-all duration-500 ${
+      isMusicOn ? "opacity-100 animate-spin" : "opacity-50"
+    }`}
+    style={isMusicOn ? { animationDuration: "3s" } : undefined}
+  />
+</button>
+
+
+ <button
   onClick={onShowWishModal}
-  style={{ backgroundColor: "#db9999" }} // hồng thắm
-  className="text-white shadow-lg rounded-full p-3 hover:scale-105 transition"
+  style={{ backgroundColor: "#db9999" }}
+  className="
+    fixed
+    bottom-6 right-4
+    z-50
+    text-white
+    shadow-lg
+    rounded-full
+    p-3
+      scale-95
+    hover:scale-105
+    transition
+  "
   title="Gửi lời chúc"
 >
   <Send className="w-5 h-5" />
 </button>
 
+
+
   
-</div>
       
         {/* First full-screen photo */}
        <section
@@ -320,11 +351,11 @@ export default function WeddingCardScroll({
             textShadow: "0 2px 8px rgba(0,0,0,0.6)"
           }}
         >
-          {data.weddingDate
-            ? new Date(data.weddingDate)
+          {data.weddingDateA
+            ? new Date(data.weddingDateA)
                 .toLocaleDateString("vi-VN")
                 .replace(/\//g, ".")
-            : "02.02.2026"}
+            : "28.01.2026"}
         </p>
       </div>
     </section>
@@ -455,7 +486,7 @@ export default function WeddingCardScroll({
           `}
         >
           <div className="grid grid-cols-2 gap-3">
-            {[data.gallery?.[6], data.gallery?.[7]].map((photo, index) => (
+            {[data.gallery?.[11], data.gallery?.[7]].map((photo, index) => (
               <div
                 key={index}
                 className={`
@@ -567,14 +598,12 @@ export default function WeddingCardScroll({
   </div>
 
   {/* Animation chỉ cho tiêu đề */}
-  <h3
-    className={`text-base sm:text-xl font-semibold mb-3 transition-transform duration-700 ease-out ${
-      isVisible("wedding-info-1") ? "scale-100" : "scale-50"
-    }`}
-    style={{ color: "#111111", fontFamily: "'Playfair Display', serif" }}
-  >
-    LỄ THÀNH HÔN
-  </h3>
+   <h3
+              className="text-base sm:text-xl font-semibold mb-3"
+              style={{ color: "#111111", fontFamily: "'Playfair Display', serif" }}
+            >
+              LỄ THÀNH HÔN
+            </h3>
 
   <p
     className="mb-3 text-center"
@@ -603,15 +632,11 @@ export default function WeddingCardScroll({
     <div className="w-20 h-[1px] bg-[#111111] mb-[2px]" />
     {/* Animation chỉ cho ngày */}
     <p
-      className={`text-xl sm:text-2xl tracking-widest leading-tight transition-transform duration-700 ease-out ${
-        isVisible("wedding-info-1") ? "scale-100" : "scale-50"
-      }`}
-      style={{ color: "#111111", fontFamily: "'Playfair Display', serif" }}
-    >
-      {data.weddingDate
-        ? new Date(data.weddingDate).toLocaleDateString("vi-VN").replace(/\//g, ".")
-        : "02.02.2026"}
-    </p>
+                className="text-xl sm:text-2xl tracking-widest leading-tight"
+                style={{ color: "#111111", fontFamily: "'Playfair Display', serif" }}
+              >
+                {data.weddingDateA ? new Date(data.weddingDateA).toLocaleDateString("vi-VN").replace(/\//g, ".") : "28.01.2026"}
+              </p>
     <div className="w-20 h-[1px] bg-[#111111] mt-[2px]" />
   </div>
 
@@ -706,7 +731,7 @@ export default function WeddingCardScroll({
                 className="text-xl sm:text-2xl tracking-widest leading-tight"
                 style={{ color: "#111111", fontFamily: "'Playfair Display', serif" }}
               >
-                {data.weddingDate ? new Date(data.weddingDate).toLocaleDateString("vi-VN").replace(/\//g, ".") : "02.02.2026"}
+                {data.weddingDateA ? new Date(data.weddingDateA).toLocaleDateString("vi-VN").replace(/\//g, ".") : "28.01.2026"}
               </p>
               <div className="w-20 h-[1px] bg-[#111111] mt-[2px]" />
             </div>
@@ -900,7 +925,7 @@ export default function WeddingCardScroll({
   {/* Container ảnh */}
   <div className="absolute inset-0 w-full h-full">
     <img
-      src={'anh6.jpg'}
+      src={'anh14.jpg'}
       alt="Wedding couple"
       className="w-full h-full object-cover block"
       loading="eager"
