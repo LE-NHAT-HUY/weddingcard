@@ -1,4 +1,5 @@
-import Head from "next/head";
+"use client"; 
+
 import WeddingCardView from "@/components/wedding-card-view";
 
 export default function Home() {
