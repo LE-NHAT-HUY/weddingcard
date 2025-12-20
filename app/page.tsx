@@ -1,11 +1,13 @@
-"use client"; 
+// app/page.tsx
+import dynamic from "next/dynamic";
 
-import WeddingCardView from "@/components/wedding-card-view";
+// Dynamic import WeddingCardView, tắt SSR
+const WeddingCardView = dynamic(
+  () => import("@/components/wedding-card-view"),
+  { ssr: false }
+);
 
-export default function Home() {
-  return (
-    <>
-      <WeddingCardView />
-    </>
-  );
+export default function Page() {
+  return <WeddingCardView />;
 }
+
