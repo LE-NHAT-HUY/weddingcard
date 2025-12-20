@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import type { WeddingData, Wish } from "@/lib/types"
 import { useEffect, useRef, useState } from "react"
