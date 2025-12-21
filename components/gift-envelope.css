@@ -1,0 +1,266 @@
+/* gift-envelope.css
+ - Full stylesheet for GiftEnvelope component
+ - Import fonts in index.html (recommended):
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400;600&display=swap" rel="stylesheet">
+*/
+
+/* root */
+.envelope-root {
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFF8E1 100%);
+  position: relative;
+  overflow: visible;
+}
+
+/* Title */
+.envelope-title-container {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.envelope-title {
+  color: #8b0000;
+  letter-spacing: 3px;
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(139, 0, 0, 0.08);
+  white-space: nowrap;
+}
+.envelope-subtitle {
+  color: #a05252;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* wrapper */
+.envelope-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* container */
+.envelope-container {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.22s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  -webkit-tap-highlight-color: transparent;
+}
+.envelope-container:focus { outline: none; transform: translateY(-4px) scale(1.01); }
+.envelope-container.is-animating { pointer-events: none; }
+
+/* pocket / base - sits above letter to hide it when closed */
+.envelope-base {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #8b0000 0%, #b22222 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow:
+    0 10px 30px rgba(139, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  z-index: 6;               /* pocket above letter */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  overflow: hidden;         /* hide letter parts when closed */
+}
+
+/* Nắp thư luôn trên phong thư */
+.envelope-flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #a52a2a 0%, #8b0000 100%);
+  border-radius: 8px 8px 0 0;
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 7; /* tăng z-index để luôn nổi trên base và letter khi đóng */
+  box-shadow:
+    0 -5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+}
+
+/* wax seal - on top */
+.wax-seal {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8; /* above pocket */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    inset 0 2px 6px rgba(255, 255, 255, 0.28);
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  animation: pulse 2.4s infinite;
+  pointer-events: none;
+}
+.wax-seal .seal-heart {
+  font-size: 20px;
+  color: #8b0000;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.18);
+}
+
+/* Letter (inside) - between flap and pocket */
+.letter {
+  position: absolute;
+  width: 280px;
+  height: 160px;
+  background: linear-gradient(to bottom, #fffaf0 0%, #fffef8 100%);
+  border-radius: 8px;
+  top: 58%;                 /* slightly lower so pocket hides it when closed */
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.98);
+  z-index: 3;               /* above flap (2) but below pocket (6) */
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+  transition:
+    transform 0.75s cubic-bezier(0.18,0.9,0.32,1),
+    opacity 0.45s ease,
+    visibility 0s linear 0.45s;
+  pointer-events: none;
+}
+
+/* letter content layout */
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 14px;
+  gap: 8px;
+}
+.qr-container { margin-bottom: 8px; }
+.qr-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 6px;
+  border: 1px solid rgba(139,0,0,0.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+.account-info { text-align: center; }
+.account-name { color:#8b0000; font-size:1.05rem; font-weight:600; margin-bottom:4px; }
+.account-number { font-family:monospace; font-size:1.15rem; color:#333; background: rgba(139,0,0,0.04); padding:6px 10px; border-radius:6px; font-weight:600; margin-top:6px; }
+.account-bank { font-size:0.95rem; color:#333; opacity:0.85; margin-top:4px; }
+
+/* When open: letter is pushed up and becomes visible.
+   z-index increased but kept lower than pocket (if you want letter to appear above pocket, increase to >6) */
+/* Lá thư khi mở */
+.letter.letter-open {
+  width: 280px;          /* chiều ngang giữ nguyên */
+  height: 220px;         /* tăng bề dọc */
+  top: 50%;              /* căn giữa theo chiều dọc */
+  transform: translate(-50%, -310px) scale(1); /* -140px = nửa chiều cao trồi lên */
+  z-index: 4;            /* nổi trên flap (3), thấp hơn seal (5) */
+  opacity: 1;
+  visibility: visible;
+  transition:
+    transform 0.75s cubic-bezier(0.18,0.9,0.32,1),
+    opacity 0.45s ease;
+  transition-delay: 0.06s;
+  pointer-events: auto;  /* có thể tương tác với nội dung */
+}
+
+/* QR khi lá thư mở */
+.letter.letter-open .qr-img {
+  width: 160px;   /* tăng kích thước */
+  height: 160px;
+}
+
+/* closed state */
+.letter.letter-closed {
+  transform: translate(-50%, -50%) scale(0.98);
+  top: 58%;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform 0.65s cubic-bezier(0.175, 0.885, 0.32, 1),
+    opacity 0.35s ease,
+    visibility 0s linear 0.36s;
+  pointer-events: none;
+}
+
+/* flap rotate when open - since flap z-index is below letter, letter appears above flap */
+.envelope-container.is-open .envelope-flap {
+  transform: rotateX(-180deg);
+  z-index: 2;
+}
+
+/* wax seal subtle when open */
+.envelope-container.is-open .wax-seal {
+  opacity: 0.65;
+  transform: translate(-50%, -50%) scale(0.88);
+}
+
+/* pocket overlay (mouth) to create smoother hide effect for the letter */
+.envelope-base::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  z-index: 7; /* on top of pocket (6) but below seal (8) */
+  pointer-events: none;
+}
+
+/* small hint text */
+.envelope-hint {
+  margin-top: 12px;
+  color: #8b0000;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.82);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(139,0,0,0.06);
+  user-select: none;
+}
+
+/* pulse animation for wax seal */
+@keyframes pulse {
+  0% { transform: translate(-50%,-50%) scale(1); }
+  50% { transform: translate(-50%,-50%) scale(1.04); }
+  100% { transform: translate(-50%,-50%) scale(1); }
+}
+
+/* responsive */
+@media (max-width:768px) {
+  .envelope-container { width: 280px; height: 180px; }
+  .letter { width: 240px; height: 140px; }
+  .qr-img { width: 90px; height: 90px; }
+  .envelope-title { font-size: 1.8rem; }
+}
+@media (max-width:480px) {
+  .envelope-container { width: 250px; height: 160px; }
+  .letter { width: 220px; height: 130px; }
+  .qr-img { width: 80px; height: 80px; }
+  .envelope-title { font-size: 1.6rem; }
+}

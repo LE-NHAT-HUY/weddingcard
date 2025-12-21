@@ -1,5 +1,6 @@
 "use client"
 
+import GiftEnvelope from "./GiftEnvelope";
 import Image from "next/image"
 import type { WeddingData, Wish } from "@/lib/types"
 import { useEffect, useRef, useState } from "react"
@@ -57,7 +58,7 @@ export default function WeddingCardScroll({
   }
 
   // Hero cover (nếu data.coverPhoto rỗng thì fallback ảnh anh-nen1)
-  const coverCandidate = data.coverPhoto || "/anh-nen1.jpg"
+  const coverCandidate = data.coverPhoto || "/anh15.jpg"
   const { src: coverPhotoOptimized, blur: coverBlur } = optimizedPathFor(coverCandidate)
 
   // Supabase / search params / state giữ nguyên
@@ -77,7 +78,7 @@ export default function WeddingCardScroll({
   const [isMusicOn, setIsMusicOn] = useState(false)
 
   useEffect(() => {
-    audioRef.current = new Audio('/wedding-background-music.mp3')
+    audioRef.current = new Audio('/music.mp3')
     audioRef.current.loop = true
     audioRef.current.volume = 0.3
     audioRef.current.preload = 'auto'
@@ -239,7 +240,7 @@ export default function WeddingCardScroll({
         </div>
 
         {/* Text overlay */}
-        <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full text-center z-10 px-4">
+        <div className="absolute bottom-[17%] left-1/2 -translate-x-1/2 w-full text-center z-10 px-4">
           <p className={`text-sm sm:text-base transition-opacity transition-transform duration-1000 ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`} style={{ fontFamily: "'Playfair Display', serif", color: "#ffffff", letterSpacing: "1px", marginBottom: "12px", textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
             SAVE THE DATE
           </p>
@@ -310,7 +311,7 @@ export default function WeddingCardScroll({
 </section>
 
 
-
+<div className="flex justify-center my-6"><div className="w-75 h-[1px] bg-[#111111] opacity-60" /></div>
       
 
       {/* Invitation text */}
@@ -409,7 +410,7 @@ export default function WeddingCardScroll({
           <p className={`text-lg sm:text-2xl mt-10 font-semibold mb-6 transition-all duration-1000 ${isVisible("gallery-grid") ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`} style={{ fontFamily: "'Great Vibes', cursive", color: "#111111", letterSpacing: "2px", fontSize: "30px", whiteSpace: "nowrap", fontWeight: "300", transitionDelay: "0ms" }}>Album Hình Cưới</p>
 
           <div className="grid grid-cols-2 gap-3 w-full">
-            {[data.gallery?.[3], data.gallery?.[9], data.gallery?.[8], data.gallery?.[10]].map((photo, index) => {
+            {[data.gallery?.[15], data.gallery?.[14], data.gallery?.[8], data.gallery?.[10]].map((photo, index) => {
               const { src, blur } = optimizedPathFor(photo)
               const delay = `${index * 500}ms`
               return (
@@ -434,7 +435,14 @@ export default function WeddingCardScroll({
 
       <RSVPSection />
 
-      {/* Gửi quà, donate card... giữ nguyên */}
+      <GiftEnvelope
+  titleVisible={isVisible("gift-title")}
+  cardVisible={isVisible("donate-card")}
+  qrSrc="/donate.png"
+  name="LE KHANH NAM"
+  bank="MB BANK"
+  account="88888888888"
+/>
 
       {/* Last full-screen photo */}
       <section id="main-photo-end" data-animate className={`relative w-screen h-screen md:w-full md:h-auto md:aspect-[3/4] md:max-h-[80vh] md:mx-auto md:my-8 md:rounded-lg md:overflow-hidden md:shadow-lg transition-all duration-1700 ease-out ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>

@@ -29,7 +29,7 @@ const defaultData: WeddingData = {
   template: "",
   primaryColor: "#9e0a0a",
   accentColor: "#db9999",
-  coverPhoto: "/anh-nen1.jpg",
+  coverPhoto: "/anh15.jpg",
   introText:
   
     "",
@@ -77,6 +77,9 @@ const defaultData: WeddingData = {
     "/anh12.jpg",
     "/anh13.jpg",
     "/anh14.jpg",
+    "/anh15.jpg",
+    "/anh16.jpg",
+    "/anh17.jpg",
   ],
 }
 
@@ -244,7 +247,7 @@ export default function WeddingCardView() {
 
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f5f0eb]">
-      <audio ref={audioRef} src="/wedding-background-music.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/music.mp3" loop preload="auto" />
 {showFloatingWishes && activeWishes.length > 0 && (
   <div
     className="floating-wishes-container fixed left-1/2 -translate-x-1/2 bottom-3 z-40 w-[92vw] sm:w-[88vw] md:w-[420px] h-[55vh] overflow-hidden"
