@@ -10,12 +10,14 @@ import { useSearchParams } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 
 interface WeddingCardScrollProps {
+    guestCode?: string
   data: WeddingData
   onToggleMusic?: () => void
   onShowWishModal?: () => void
 }
 
 export default function WeddingCardScroll({
+  guestCode,
   data,
   onToggleMusic,
   onShowWishModal,
@@ -62,8 +64,9 @@ export default function WeddingCardScroll({
   const { src: coverPhotoOptimized, blur: coverBlur } = optimizedPathFor(coverCandidate)
 
   // Supabase / search params / state giữ nguyên
-  const searchParams = useSearchParams()
-  const code = searchParams.get("code")
+  //const searchParams = useSearchParams()
+  //const code = searchParams.get("code")
+  const codeToUse = guestCode 
   const supabase = createClient()
 
   const [guestName, setGuestName] = useState<string | null>(null)
@@ -114,19 +117,29 @@ export default function WeddingCardScroll({
     }
   }, [])
 
-  useEffect(() => {
-    if (!code) return
-    const fetchGuest = async () => {
-      const { data } = await supabase
-        .from("guests")
-        .select("name, honorific")
-        .eq("code", code)
-        .single()
-      if (data?.name) setGuestName(data.name)
-      if (data?.honorific) setGuestHonorific(data.honorific)
-    }
-    fetchGuest()
-  }, [code, supabase])
+
+useEffect(() => {
+  console.log("Fetching guest for code:", codeToUse)
+  if (!codeToUse) return
+
+  const fetchGuest = async () => {
+    const { data, error } = await supabase
+      .from("guests")
+      .select("name, honorific")
+      .eq("code", codeToUse)
+      .single()
+    
+    console.log("Supabase result:", { data, error })
+
+    if (data?.name) setGuestName(data.name)
+    if (data?.honorific) setGuestHonorific(data.honorific)
+  }
+
+  fetchGuest()
+}, [codeToUse, supabase])
+
+
+
 
   const handleToggleMusic = (e: React.MouseEvent) => {
     e.stopPropagation()

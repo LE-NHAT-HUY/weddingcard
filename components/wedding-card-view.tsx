@@ -9,7 +9,7 @@ import { Music, Volume2, VolumeX, MessageCircleHeart, Send, X, Heart } from "luc
 import { createClient } from "@/lib/supabase/client"
 
 // Dữ liệu mặc định của thiệp cưới
-const defaultData: WeddingData = {
+export const defaultData: WeddingData = {
   
   groomName: "Khánh Nam",
   brideName: "Lan Nhi",
