@@ -1,3 +1,4 @@
+"use client";
 
 import type { WeddingData } from "@/lib/types"
 import { Heart } from "lucide-react"

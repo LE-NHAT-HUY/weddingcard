@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image"
 import type { WeddingData, Wish } from "@/lib/types"
 import { useEffect, useRef, useState } from "react"
 import { Heart, MapPin, Calendar, Volume2, Send } from "lucide-react"
@@ -279,128 +279,92 @@ useEffect(() => {
   
       
         {/* First full-screen photo */}
-       <section
-      id="main-photo-start"
-      data-animate
-      className={`
-        relative
-        w-full
-        h-screen
-        md:relative
-        md:w-full
-        md:h-auto
-        md:aspect-[3/4]
-        md:max-h-[80vh]
-        md:mx-auto
-        md:my-8
-        md:rounded-lg
-        md:overflow-hidden
-        md:shadow-lg
-        transition-all
-        duration-1700
-        ease-out
-        ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-      `}
+      <section
+  id="main-photo-start"
+  data-animate
+  className={`
+    relative
+    w-full
+    h-screen
+    md:relative
+    md:w-full
+    md:h-auto
+    md:aspect-[3/4]
+    md:max-h-[80vh]
+    md:mx-auto
+    md:my-8
+    md:rounded-lg
+    md:overflow-hidden
+    md:shadow-lg
+    transition-opacity
+    duration-700
+    ease-out
+    ${isVisible("main-photo-start") ? "opacity-100" : "opacity-0"}
+  `}
+>
+  <div className="relative w-full h-full">
+    <Image
+      src={data.coverPhoto || "/placeholder.svg"}
+      alt="Wedding couple"
+      fill
+      className="object-cover md:object-contain md:object-center"
+      priority  // preload ngay
+      sizes="100vw"
+    />
+
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:from-transparent"></div>
+  </div>
+
+  {/* Text overlay */}
+  <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full text-center z-10 px-4">
+    <p
+      className={`text-sm sm:text-base mb-2 transition-opacity duration-700 ${
+        isVisible("main-photo-start") ? "opacity-100" : "opacity-0"
+      }`}
       style={{
-        // Reset các transform trên mobile
+        fontFamily: "'Playfair Display', serif",
+        color: "#ffffff",
+        letterSpacing: "1px",
+        marginBottom: "12px",
+        textShadow: "0 2px 8px rgba(0,0,0,0.6)",
       }}
     >
-      {/* Container for image */}
-      <div className="relative w-full h-full md:h-full">
-        <img
-          src={data.coverPhoto || "/placeholder.svg"}
-          alt="Wedding couple"
-          className="
-            w-full
-            h-full
-            object-cover
-            md:object-contain
-            md:object-center
-          "
-          loading="eager"
-        />
-        
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:from-transparent"></div>
-      </div>
+      SAVE THE DATE
+    </p>
 
-      {/* Text overlay */}
-      <div className="
-        absolute 
-        bottom-[10%] 
-        left-1/2 
-        -translate-x-1/2 
-        w-full 
-        text-center 
-        z-10
-        px-4
-      ">
-        {/* Text content giữ nguyên */}
-        <p
-          className={`
-            text-sm
-            sm:text-base
-            transition-all
-            duration-1700
-            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-          `}
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            color: "#ffffff",
-            letterSpacing: "1px",
-            marginBottom: "12px",
-            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
-          }}
-        >
-          SAVE THE DATE
-        </p>
+    <p
+      className={`text-xl sm:text-3xl md:text-4xl italic transition-opacity duration-700 ${
+        isVisible("main-photo-start") ? "opacity-100" : "opacity-0"
+      }`}
+      style={{
+        fontFamily: "'Great Vibes', cursive",
+        color: "#ffffff",
+        letterSpacing: "2px",
+        whiteSpace: "nowrap",
+        textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+      }}
+    >
+      {data.groomName} & {data.brideName}
+    </p>
 
-        <p
-          className={`
-            text-xl
-            sm:text-3xl
-            md:text-4xl
-            italic
-            transition-all
-            duration-1700
-            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-          `}
-          style={{
-            fontFamily: "'Great Vibes', cursive",
-            color: "#ffffff",
-            letterSpacing: "2px",
-            whiteSpace: "nowrap",
-            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
-          }}
-        >
-          {data.groomName} & {data.brideName}
-        </p>
-
-        <p
-          className={`
-            mt-2
-            text-sm
-            sm:text-base
-            md:text-lg
-            transition-all
-            duration-1700
-            ${isVisible("main-photo-start") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-          `}
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            color: "#ffffff",
-            letterSpacing: "1px",
-            textShadow: "0 2px 8px rgba(0,0,0,0.6)"
-          }}
-        >
-          {data.weddingDateA
-            ? new Date(data.weddingDateA)
-                .toLocaleDateString("vi-VN")
-                .replace(/\//g, ".")
-            : "28.01.2026"}
-        </p>
-      </div>
-    </section>
+    <p
+      className={`mt-2 text-sm sm:text-base md:text-lg transition-opacity duration-700 ${
+        isVisible("main-photo-start") ? "opacity-100" : "opacity-0"
+      }`}
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        color: "#ffffff",
+        letterSpacing: "1px",
+        textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+      }}
+    >
+      {data.weddingDateA
+        ? new Date(data.weddingDateA).toLocaleDateString("vi-VN").replace(/\//g, ".")
+        : "28.01.2026"}
+    </p>
+  </div>
+</section>
 
         {/* Countdown */}
         <section
@@ -928,8 +892,8 @@ useEffect(() => {
           </div>
         </section>
 
-        {/* Last full-screen photo */}
-        <section
+        {/* =================== Main Photo End =================== */}
+<section
   id="main-photo-end"
   data-animate
   className={`
@@ -945,34 +909,30 @@ useEffect(() => {
     md:rounded-lg
     md:overflow-hidden
     md:shadow-lg
-    transition-all
-    duration-1700
+    transition-opacity
+    duration-700
     ease-out
-    ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+    ${isVisible("main-photo-end") ? "opacity-100" : "opacity-0"}
   `}
 >
-  {/* Container ảnh */}
-  <div className="absolute inset-0 w-full h-full">
-    <img
-      src={'anh14.jpg'}
+  <div className="relative w-full h-full">
+    <Image
+      src="/anh14.jpg"
       alt="Wedding couple"
-      className="w-full h-full object-cover block"
-      loading="eager"
+      fill
+      className="object-cover block"
+      priority  // preload ngay
+      sizes="100vw"
     />
 
-    {/* Overlay gradient nếu cần */}
     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
     {/* Text overlay */}
     <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
       <p
-        className={`
-          text-3xl
-          sm:text-5xl
-          transition-all
-          duration-1700
-          ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-        `}
+        className={`text-3xl sm:text-5xl transition-opacity duration-700 ${
+          isVisible("main-photo-end") ? "opacity-100" : "opacity-0"
+        }`}
         style={{
           fontFamily: "'Great Vibes', cursive",
           color: "#ffffff",
@@ -985,13 +945,9 @@ useEffect(() => {
       </p>
 
       <p
-        className={`
-          text-sm
-          sm:text-base
-          transition-all
-          duration-1700
-          ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
-        `}
+        className={`text-sm sm:text-base transition-opacity duration-700 ${
+          isVisible("main-photo-end") ? "opacity-100" : "opacity-0"
+        }`}
         style={{
           fontFamily: "'Playfair Display', serif",
           color: "#ffffff",
