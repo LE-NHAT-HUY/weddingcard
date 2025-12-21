@@ -80,6 +80,8 @@ const defaultData: WeddingData = {
     "/anh15.jpg",
     "/anh16.jpg",
     "/anh17.jpg",
+    "/anh18.jpg",
+    "/anh19.jpg",
   ],
 }
 

@@ -410,7 +410,7 @@ export default function WeddingCardScroll({
           <p className={`text-lg sm:text-2xl mt-10 font-semibold mb-6 transition-all duration-1000 ${isVisible("gallery-grid") ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`} style={{ fontFamily: "'Great Vibes', cursive", color: "#111111", letterSpacing: "2px", fontSize: "30px", whiteSpace: "nowrap", fontWeight: "300", transitionDelay: "0ms" }}>Album Hình Cưới</p>
 
           <div className="grid grid-cols-2 gap-3 w-full">
-            {[data.gallery?.[15], data.gallery?.[14], data.gallery?.[8], data.gallery?.[10]].map((photo, index) => {
+            {[data.gallery?.[15], data.gallery?.[14], data.gallery?.[16], data.gallery?.[17], data.gallery?.[8], data.gallery?.[10]].map((photo, index) => {
               const { src, blur } = optimizedPathFor(photo)
               const delay = `${index * 500}ms`
               return (
