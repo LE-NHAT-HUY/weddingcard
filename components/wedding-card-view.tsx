@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 
@@ -247,47 +246,32 @@ export default function WeddingCardView() {
       <audio ref={audioRef} src="/wedding-background-music.mp3" loop preload="auto" />
 {showFloatingWishes && activeWishes.length > 0 && (
   <div
-    className="
-      fixed
-      left-1/2 -translate-x-1/2
-      bottom-3
-      z-40
-      w-[92vw] sm:w-[88vw] md:w-[420px]
-      h-[55vh]
-      overflow-hidden
-    "
-    style={{
-      pointerEvents: 'none' /* Chỉ đặt ở container chính */
-    }}
+    className="floating-wishes-container fixed left-1/2 -translate-x-1/2 bottom-3 z-40 w-[92vw] sm:w-[88vw] md:w-[420px] h-[55vh] overflow-hidden"
   >
-    {/* Container bên trong không có pointer-events */}
-    <div className="w-full h-full relative">
-      {activeWishes.map((wish) => (
-        <div
-          key={wish.uniqueKey}
-          className="floating-wish absolute left-0 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl"
-          style={{
-            bottom: 0,
-            maxWidth: "85%",
-            backgroundColor: "rgba(243, 121, 121, 0.65)",
-            border: `1px solid ${data.primaryColor}25`,
-            boxShadow: `0 2px 10px ${data.primaryColor}15`,
-            color: "#ffffff",
-            fontFamily: "'Playfair Display', serif",
-            pointerEvents: 'none' /* Quan trọng: lời chúc không chặn tương tác */
-          }}
-        >
-          <div className="flex">
-            <span className="text-[13px] sm:text-sm leading-snug line-clamp-2 break-words">
-              <span className="font-semibold">
-                {wish.name}
-              </span>
-              : {wish.message}
+    {activeWishes.map((wish) => (
+      <div
+        key={wish.uniqueKey}
+        className="floating-wish absolute left-0 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl"
+        style={{
+          bottom: 0,
+          maxWidth: "85%",
+          backgroundColor: "rgba(243, 121, 121, 0.65)",
+          border: `1px solid ${data.primaryColor}25`,
+          boxShadow: `0 2px 10px ${data.primaryColor}15`,
+          color: "#ffffff",
+          fontFamily: "'Playfair Display', serif",
+        }}
+      >
+        <div className="flex">
+          <span className="text-[13px] sm:text-sm leading-snug line-clamp-2 break-words">
+            <span className="font-semibold">
+              {wish.name}
             </span>
-          </div>
+            : {wish.message}
+          </span>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
 )}
 
