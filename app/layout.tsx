@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Wedding Card",
     images: [
       {
-        url: "https://khanhnam-lannhi.vercel.app/anhnen.jpg",
+        url: "https://khanhnam-lannhi.vercel.app/og-cover.jpg",
         width: 1200,
         height: 630,
         alt: "Wedding couple",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Thiệp Cưới Khánh Nam & Lan Nhi",
     description: "Mời bạn tham dự lễ cưới của chúng tôi.",
-    images: ["https://khanhnam-lannhi.vercel.app/anhnen.jpg"],
+    images: ["https://khanhnam-lannhi.vercel.app/og-cover.jpg"],
   },
 }
 
@@ -77,7 +77,7 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Thiệp Cưới Khánh Nam & Lan Nhi" />
         <meta property="og:description" content="Mời bạn tham dự lễ cưới của chúng tôi." />
-        <meta property="og:image" content="https://khanhnam-lannhi.vercel.app/anhnen.jpg" />
+        <meta property="og:image" content="https://khanhnam-lannhi.vercel.app/og-cover.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Thiệp Cưới Khánh Nam & Lan Nhi" />
@@ -86,7 +86,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Thiệp Cưới Khánh Nam & Lan Nhi" />
         <meta name="twitter:description" content="Mời bạn tham dự lễ cưới của chúng tôi." />
-        <meta name="twitter:image" content="https://khanhnam-lannhi.vercel.app/anhnen.jpg" />
+        <meta name="twitter:image" content="https://khanhnam-lannhi.vercel.app/og-cover.jpg" />
         
         {/* Thẻ meta bổ sung để kiểm soát hiển thị trên mobile */}
         <meta property="og:locale" content="vi_VN" />
