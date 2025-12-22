@@ -448,14 +448,7 @@ useEffect(() => {
 
       <RSVPSection />
 
-      <GiftEnvelope
-  titleVisible={isVisible("gift-title")}
-  cardVisible={isVisible("donate-card")}
-  qrSrc="/donate.png"
-  name="LE KHANH NAM"
-  bank="MB BANK"
-  account="88888888888"
-/>
+      <GiftEnvelope />
 
       {/* Last full-screen photo */}
       <section id="main-photo-end" data-animate className={`relative w-screen h-screen md:w-full md:h-auto md:aspect-[3/4] md:max-h-[80vh] md:mx-auto md:my-8 md:rounded-lg md:overflow-hidden md:shadow-lg transition-all duration-1700 ease-out ${isVisible("main-photo-end") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
