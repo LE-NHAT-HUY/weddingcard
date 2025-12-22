@@ -171,10 +171,10 @@
    z-index increased but kept lower than pocket (if you want letter to appear above pocket, increase to >6) */
 /* Lá thư khi mở */
 .letter.letter-open {
-  width: 280px;          /* chiều ngang giữ nguyên */
+  width: 250px;          /* chiều ngang giữ nguyên */
   height: 220px;         /* tăng bề dọc */
   top: 50%;              /* căn giữa theo chiều dọc */
-  transform: translate(-50%, -310px) scale(1); /* -140px = nửa chiều cao trồi lên */
+  transform: translate(-50%, -400px) scale(1); /* -140px = nửa chiều cao trồi lên */
   z-index: 4;            /* nổi trên flap (3), thấp hơn seal (5) */
   opacity: 1;
   visibility: visible;
@@ -259,8 +259,9 @@
   .envelope-title { font-size: 1.8rem; }
 }
 @media (max-width:480px) {
-  .envelope-container { width: 250px; height: 160px; }
+  .envelope-container { width: 260px; height: 200px; }
   .letter { width: 220px; height: 130px; }
   .qr-img { width: 80px; height: 80px; }
   .envelope-title { font-size: 1.6rem; }
 }
+
