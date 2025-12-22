@@ -122,10 +122,6 @@ export default function GiftEnvelope({
 </div>
 
           </div>
-
-          <div className="envelope-hint" aria-hidden="true">
-            {open ? "" : ""}
-          </div>
         </div>
       </section>
     </div>
